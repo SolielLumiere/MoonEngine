@@ -1,3 +1,5 @@
+set(MOON_LIBRARY moonlibrary CACHE INTERNAL "")
+
 include_directories(${PROJECT_SOURCE_DIR}/inc)
 add_subdirectory(Behavior)
 add_subdirectory(Camera)
@@ -11,3 +13,19 @@ add_subdirectory(Optimization)
 add_subdirectory(SpriteSheets)
 add_subdirectory(States)
 add_subdirectory(Textures)
+
+add_library(${MOON_LIBRARY}  moonLibrary.cpp)
+target_link_libraries(
+    ${MOON_LIBRARY}  
+    ${BEHAVIOR_LIBARY} 
+    ${CAMERA_LIBRARY}
+    ${COLLISION_LIBRARY}
+    ${COMPONENTS_LIBRARY}
+    ${GAME_LIBRARY}
+    ${GAMEOBJECT_LIBRARY}
+    ${INTERFACES_LIBRARY}
+    ${MATH_LIBRARY}
+    ${OPTTIMIZATION_LIBRARY}
+    ${SPRITESHEET_LIBRARY}
+    ${STATES_LIBRARY}
+    ${TEXTURE_LIBRARY})
