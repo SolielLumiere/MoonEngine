@@ -2,7 +2,7 @@
 
 #include "Core/Components/Component.hpp"
 #include "Core/Components/Colliders/ICollider.hpp"
-
+#include "Core/GameObject/GameObject.hpp"
 
 namespace MoonEngine
 {

@@ -3,12 +3,13 @@
 namespace MoonEngine 
 {
 
-    class Game : protected IGame
+    class Game : public IGame
     {
     public:
         Game(unsigned int width, unsigned int height, const std::string &title);
         ~Game();
         virtual void start() override;
+        void setBackgroundColor(sf::Color color);
         
     protected:
 
@@ -22,6 +23,7 @@ namespace MoonEngine
 
     private:
         sf::Clock mClock;
+        sf::Color mColor;
 
     };
 

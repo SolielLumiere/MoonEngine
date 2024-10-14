@@ -7,6 +7,7 @@ set(SOURCES
     src/Cards/Card.cpp 
     src/States/GameState.cpp
     src/Textures/CardsTextures.cpp
+    src/Cards/Components/CardMouseListener.cpp
     
 )
 

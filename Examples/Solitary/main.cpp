@@ -13,7 +13,9 @@ int main(int, char**)
     MoonEngine::TextureLoader loader({CardsTextures::instance()});
     loader.init();
 
-    Game g(500, 500, "Solitary");
+    Game g(1024, 720, "Solitary");
+    g.setBackgroundColor(sf::Color(12, 138, 8));
+    g.setVerticalSyncEnabled(true);
     
     StateHandler::instance()->setState(new GameSate());
     g.start();

@@ -20,6 +20,7 @@ namespace MoonEngine
         virtual void onTriggerExit(GameObject *other);
         virtual void onDestroy();
 
+
         void instanciate(GameObject *e);
         int layerOrder() const;
     protected:

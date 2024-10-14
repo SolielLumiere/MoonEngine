@@ -1,5 +1,4 @@
 #include "Core/Components/Mouse/MouseListener.hpp"
-#include "Core/GameObject/GameObject.hpp"
 #include "Core/Components/MousePosition.hpp"
 
 
@@ -18,6 +17,7 @@ MoonEngine::MouseListener::~MouseListener()
 
 void MoonEngine::MouseListener::update(float dt)
 {
+    Component::update(dt);
     if(mCollider == nullptr)
     {
         return;
@@ -46,12 +46,13 @@ void MoonEngine::MouseListener::handleInputs(const sf::Event &event)
 
     sf::FloatRect mouseRect((sf::Vector2f)MousePosition::instance()->position(), sf::Vector2f(1, 1));
 
-    if(event.type == sf::Event::MouseButtonPressed && mCollider->intersects(mouseRect))
+    if(event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left && mCollider->intersects(mouseRect))
     {
+        
         onLeftButtonPressed();
     }
 
-    if(event.type == sf::Event::MouseButtonReleased && mCollider->intersects(mouseRect))
+    if(event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left && mCollider->intersects(mouseRect))
     {
         onLeftButtonReleased();
     }
@@ -59,16 +60,20 @@ void MoonEngine::MouseListener::handleInputs(const sf::Event &event)
 
 void MoonEngine::MouseListener::onMouseEnter()
 {
+    printf("Mouse Enter \n\r");
 }
 
 void MoonEngine::MouseListener::onMouseExit()
 {
+    printf("Mouse Exit \n\r");
 }
 
 void MoonEngine::MouseListener::onLeftButtonPressed()
 {
+    printf("Left Buttton Pressed \n\r");
 }
 
 void MoonEngine::MouseListener::onLeftButtonReleased()
 {
+    printf("Left Buttton Released \n\r");
 }
