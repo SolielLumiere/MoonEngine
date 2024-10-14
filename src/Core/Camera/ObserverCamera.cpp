@@ -1,4 +1,4 @@
-#include "ObserverCamera.hpp"
+#include "Core/Camera/ObserverCamera.hpp"
 #include "Core/GameObject/GameObject.hpp"
 
 using namespace MoonEngine;

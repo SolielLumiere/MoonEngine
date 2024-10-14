@@ -1,4 +1,4 @@
-#include "MonoBehavior.hpp"
+#include "Core/Behavior/MonoBehavior.hpp"
 
 using namespace MoonEngine;
 

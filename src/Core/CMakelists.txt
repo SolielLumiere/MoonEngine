@@ -1,31 +1,36 @@
 set(MOON_LIBRARY moonlibrary CACHE INTERNAL "")
 
 include_directories(${PROJECT_SOURCE_DIR}/inc)
-add_subdirectory(Behavior)
-add_subdirectory(Camera)
-add_subdirectory(Collision)
-add_subdirectory(Components)
-add_subdirectory(Game)
-add_subdirectory(GameObject)
-add_subdirectory(Interfaces)
-add_subdirectory(Math)
-add_subdirectory(Optimization)
-add_subdirectory(SpriteSheets)
-add_subdirectory(States)
-add_subdirectory(Textures)
 
-add_library(${MOON_LIBRARY}  moonLibrary.cpp)
-target_link_libraries(
-    ${MOON_LIBRARY}  
-    ${BEHAVIOR_LIBARY} 
-    ${CAMERA_LIBRARY}
-    ${COLLISION_LIBRARY}
-    ${COMPONENTS_LIBRARY}
-    ${GAME_LIBRARY}
-    ${GAMEOBJECT_LIBRARY}
-    ${INTERFACES_LIBRARY}
-    ${MATH_LIBRARY}
-    ${OPTTIMIZATION_LIBRARY}
-    ${SPRITESHEET_LIBRARY}
-    ${STATES_LIBRARY}
-    ${TEXTURE_LIBRARY})
+set(SOURCES 
+    Behavior/Behavior.cpp
+    Behavior/MonoBehavior.cpp
+    Camera/Camera.cpp
+    Camera/ObserverCamera.cpp
+    Collision/QuadTreeCollisionEngine.cpp
+    Components/Animation/ErasableRectAnimation.cpp
+    Components/Animation/RectAnimation.cpp
+    Components/Colliders/BoxCollider.cpp
+    Components/Colliders/CircleCollider.cpp
+    Components/Colliders/ICollider.cpp
+    Components/Motion/Follower.cpp
+    Components/Component.cpp
+    Components/MousePosition.cpp
+    Components/StateHandler.cpp
+    Game/Game.cpp
+    Game/IGame.cpp
+    GameObject/ChildGameObject.cpp
+    GameObject/GameObject.cpp
+    Interfaces/IAnimatable.cpp
+    Interfaces/ICollisionEngine.cpp
+    Math/Math.cpp
+    Optimization/ObjectPoolManager.cpp
+    SpriteSheets/ISpriteSheet.cpp
+    SpriteSheets/SpriteSheet.cpp
+    States/State.cpp
+    Textures/Texture.cpp
+    Textures/TextureLoader.cpp
+)
+
+add_library(${MOON_LIBRARY} ${SOURCES})
+target_link_libraries(${MOON_LIBRARY} PUBLIC sfml-graphics sfml-audio sfml-system)
