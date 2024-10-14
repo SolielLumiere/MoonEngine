@@ -14,10 +14,11 @@ namespace MoonEngine
         ~MouseListener();
 
         void update(float dt) override;
+        void handleInputs(const sf::Event &event) override;
     private:
         ICollider *mCollider;
         bool mMouseEnter;
-        bool mButtonPressed;
+
         
     };
 
