@@ -1,6 +1,8 @@
 #include "Cards/Card.h"
 #include "Cards/Types.hpp"
 #include "Core/Components/Colliders/BoxCollider.hpp"
+#include "Core/Components/Mouse/MouseListener.hpp"
+
 Card::Card( CardClass classCard, 
             CardColor color, 
             CardValue value, 
@@ -18,6 +20,7 @@ Card::Card( CardClass classCard,
     setPosition(100, 100);
 
     addComponent(new MoonEngine::BoxCollider(this, (sf::Vector2f)getTextureRect().getSize()));
+    addComponent(new MoonEngine::MouseListener(this));
 }
 
 Card::~Card()
@@ -26,6 +29,6 @@ Card::~Card()
 
 void Card::update(float dt)
 {
-    
+    GameObject::update(dt);
 }
 

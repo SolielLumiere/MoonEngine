@@ -12,6 +12,8 @@ namespace MoonEngine
         CircleCollider(GameObject *parent, float radius ,int order = -1);
         ~CircleCollider();
         void update(float dt) override;
+
+        DECLARE_COMPONENT_TYPE(CircleCollider, ICollider)
     protected:
         
     };

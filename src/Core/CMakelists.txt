@@ -17,6 +17,7 @@ set(SOURCES
     Components/Component.cpp
     Components/MousePosition.cpp
     Components/StateHandler.cpp
+    Components/Mouse/MouseListener.cpp
     Game/Game.cpp
     Game/IGame.cpp
     GameObject/ChildGameObject.cpp
