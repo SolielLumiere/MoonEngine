@@ -28,13 +28,13 @@ void MoonEngine::MouseListener::update(float dt)
     if(mCollider->intersects(mouseRect) && !mMouseEnter)
     {
         mMouseEnter = true;
-        printf("Mouse Inside!!\n\r");
+        onMouseEnter();
     }
   
     if(mMouseEnter && !mCollider->intersects(mouseRect))
     {
         mMouseEnter = false;
-        printf("Mouse Out!!\n\r");
+        onMouseExit();
     }
 
 
@@ -48,13 +48,27 @@ void MoonEngine::MouseListener::handleInputs(const sf::Event &event)
 
     if(event.type == sf::Event::MouseButtonPressed && mCollider->intersects(mouseRect))
     {
-        printf("Click Inside!!\n\r");
-
+        onLeftButtonPressed();
     }
 
     if(event.type == sf::Event::MouseButtonReleased && mCollider->intersects(mouseRect))
     {
-        printf("Click released!!\n\r");
-
+        onLeftButtonReleased();
     }
+}
+
+void MoonEngine::MouseListener::onMouseEnter()
+{
+}
+
+void MoonEngine::MouseListener::onMouseExit()
+{
+}
+
+void MoonEngine::MouseListener::onLeftButtonPressed()
+{
+}
+
+void MoonEngine::MouseListener::onLeftButtonReleased()
+{
 }

@@ -15,11 +15,16 @@ namespace MoonEngine
 
         void update(float dt) override;
         void handleInputs(const sf::Event &event) override;
-    private:
+        DECLARE_COMPONENT_TYPE(MouseListener, Component)
+
+    protected:
         ICollider *mCollider;
         bool mMouseEnter;
 
-        
+        virtual void onMouseEnter();
+        virtual void onMouseExit();
+        virtual void onLeftButtonPressed();
+        virtual void onLeftButtonReleased();
     };
 
 }
